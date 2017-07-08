@@ -83,8 +83,8 @@ if __name__ == "__main__":
 	
 	parser.add_argument("-u", "--undirected", action="store_true", help="construct an undirected graph, directed by default")
 	
-	parser.add_argument("-st", "--source-type",      required=False, action="store", type=str, metavar="extension", help="file type")
-	parser.add_argument("-dt", "--destination-type", required=False, action="store", type=str, metavar="extension", help="file type")
+	parser.add_argument("-st", "--source-type",      action="store", type=str, metavar="extension", help="file type")
+	parser.add_argument("-dt", "--destination-type", action="store", type=str, metavar="extension", help="file type")
 	
 	arguments = vars(parser.parse_args())
 	try:
