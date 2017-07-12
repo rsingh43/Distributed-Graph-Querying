@@ -1,0 +1,33 @@
+reset
+set datafile separator ","
+
+set title "Relative Triple Count"
+
+set xlabel "Minimum Threshold"
+set xrange [0:0.6]
+#set logscale x 2
+
+set ylabel "Count"
+set logscale y 10
+set format y "%.2f%%"
+set yrange [0.001:100]
+
+set key horizontal
+set key outside bottom center
+set key height 2
+
+fix(xx) = (xx == 0) ? 0.001 : xx
+
+set style line 4 lt rgb "red"  lw 4 pt 7
+set style line 5 lt rgb "blue" lw 4 pt 5
+set style line 6 lt rgb "green" lw 4 pt 4
+set style line 7 lt rgb "purple" lw 4 pt 6
+
+set terminal postscript eps color
+set output "relative_triple_count.eps"
+
+plot "betweenness_centrality.csv" using 1:(fix(($2/24929)*100)) with linespoints linestyle 4 title "Betweenness" ,\
+     "closeness_centrality.csv"   using 1:(fix(($2/24929)*100)) with linespoints linestyle 5 title "Closeness" ,\
+     "eigenvector_centrality.csv" using 1:(fix(($2/24929)*100)) with linespoints linestyle 6 title "Eigenvector" ,\
+     "pagerank.csv"               using 1:(fix(($2/24929)*100)) with linespoints linestyle 7 title "PageRank"
+
