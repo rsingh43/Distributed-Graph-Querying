@@ -3,7 +3,7 @@ set datafile separator ","
 
 set title "Absolute Triangle Count"
 
-set xlabel "Maximum Threshold"
+set xlabel "Minimum Threshold"
 set xrange [0.00001:1.0]
 set xtics add ("0" 0.00001)
 set format x "%.0g"
