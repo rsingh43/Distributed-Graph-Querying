@@ -17,7 +17,7 @@ WHERE {{
 """
 	table = [["weight"] + attributes]
 	query = query_pattern.format(pattern="\n".join(lines))
-	print query
+	#print query
 	endpoint.setQuery(query)
 	endpoint.setReturnFormat(JSON)
 	results = endpoint.query().convert()
