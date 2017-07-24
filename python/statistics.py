@@ -38,7 +38,7 @@ WHERE {{
 	print tabulate.tabulate(table, headers="firstrow", tablefmt=tablefmt)
 
 if __name__ == '__main__':
-	parser = argparse.ArgumentParser(description="Triangle Count", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+	parser = argparse.ArgumentParser(description="Attribute Statistics", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 	#parser = argparse.ArgumentParser(description="Triangle Count")
 
 	parser.add_argument("-a", "--attributes", nargs="+", required=True, type=str, metavar="name", help="attribute used for filtering")
