@@ -30,9 +30,9 @@ WHERE {{
 
 	values = zip(*values)
 
-	table = [["", "Min", "Max", "Mean", "Std. Dev."]]
+	table = [["", "Min", "Max", "Median", "Mean", "Std. Dev."]]
 	for ii,attribute in enumerate(attributes):
-		row = [attribute] + [numpy.amin(values[ii]), numpy.amax(values[ii]), numpy.mean(values[ii]), numpy.std(values[ii])]
+		row = [attribute] + [numpy.amin(values[ii]), numpy.amax(values[ii]), numpy.median(values[ii]), numpy.mean(values[ii]), numpy.std(values[ii])]
 		table.append(row)
 
 	print tabulate.tabulate(table, headers="firstrow", tablefmt=tablefmt)
