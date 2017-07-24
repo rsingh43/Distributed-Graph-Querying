@@ -10,7 +10,7 @@ SELECT (COUNT(*) AS ?total)
 WHERE {{
 	?src paypal:connects ?dst .
 	?src paypal:{attribute} ?value1 .
-	?src paypal:{attribute} ?value2 .
+	?dst paypal:{attribute} ?value2 .
 	FILTER(?value1 >= {value}) .
 	FILTER(?value2 >= {value}) .
 }}
