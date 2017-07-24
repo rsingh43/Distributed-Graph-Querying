@@ -9,6 +9,36 @@ PREFIX paypal: <http://paypal.com/>
 SELECT (COUNT(*) AS ?total)
 WHERE {{
 	?src paypal:connects ?dst .
+}}
+"""
+	query = triple_query_pattern.format(attribute=attribute)
+	endpoint.setQuery(query)
+	endpoint.setReturnFormat(JSON)
+	results = endpoint.query().convert()
+	max_triples = int(results['results']['bindings'][0]['total']['value'])
+	
+	
+	triangle_query_pattern = """
+PREFIX paypal: <http://paypal.com/>
+SELECT (COUNT(*) AS ?total)
+WHERE {{
+	?node1 paypal:connects ?node2 .
+	?node2 paypal:connects ?node3 .
+	?node3 paypal:connects ?node1 .
+}}
+"""
+	query = triangle_query_pattern.format(attribute=attribute)
+	endpoint.setQuery(query)
+	endpoint.setReturnFormat(JSON)
+	results = endpoint.query().convert()
+	max_triangles = int(results['results']['bindings'][0]['total']['value'])
+
+
+	triple_query_pattern = """
+PREFIX paypal: <http://paypal.com/>
+SELECT (COUNT(*) AS ?total)
+WHERE {{
+	?src paypal:connects ?dst .
 	?src paypal:{attribute} ?value1 .
 	?dst paypal:{attribute} ?value2 .
 	FILTER(?value1 <= {value}) .
@@ -47,7 +77,7 @@ WHERE {{
 		results = endpoint.query().convert()
 		triangles = int(results['results']['bindings'][0]['total']['value'])
 	
-		if triples == 0 and triangles == 0:
+		if triples == max_triples and triangles == max_triangles:
 			for jj in xrange(ii, 101):
 				filter_value =  0.0001*jj**2
 				print "{},{},{}".format(filter_value, triples, triangles)
