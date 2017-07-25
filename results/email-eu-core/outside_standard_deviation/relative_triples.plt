@@ -31,8 +31,8 @@ set style line 7 lt rgb "purple" lw 4 pt 6
 set terminal postscript eps color
 set output "relative_triple_count.eps"
 
-plot "betweenness_centrality.csv" using (xfix($1)):(yfix(($2/24929)*100)) with linespoints linestyle 4 title "Betweenness" ,\
-     "closeness_centrality.csv"   using (xfix($1)):(yfix(($2/24929)*100)) with linespoints linestyle 5 title "Closeness" ,\
-     "eigenvector_centrality.csv" using (xfix($1)):(yfix(($2/24929)*100)) with linespoints linestyle 6 title "Eigenvector" ,\
-     "pagerank.csv"               using (xfix($1)):(yfix(($2/24929)*100)) with linespoints linestyle 7 title "PageRank"
+plot "betweenness_centrality.outside_sd.csv" using (xfix($1)):(yfix(($2/24929)*100)) with linespoints linestyle 4 title "Betweenness" ,\
+     "closeness_centrality.outside_sd.csv"   using (xfix($1)):(yfix(($2/24929)*100)) with linespoints linestyle 5 title "Closeness" ,\
+     "eigenvector_centrality.outside_sd.csv" using (xfix($1)):(yfix(($2/24929)*100)) with linespoints linestyle 6 title "Eigenvector" ,\
+     "pagerank.outside_sd.csv"               using (xfix($1)):(yfix(($2/24929)*100)) with linespoints linestyle 7 title "PageRank"
 
