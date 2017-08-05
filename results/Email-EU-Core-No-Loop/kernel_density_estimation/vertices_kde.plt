@@ -62,3 +62,18 @@ set xrange[0:0.008]
 set yrange [-175:700]
 plot "vertex_measures.csv" using 8:(175*rand(0)-175) linestyle 4 notitle ,\
      "vertex_measures.csv" using 8:1 smooth kdensity linestyle 4 title "PageRank"
+
+set output "sum_nbr_deg_vertices.eps"
+set title "Kernel Density Estimation\nfor All Vertices"
+set xrange[0:0.008]
+set yrange [-175:700]
+plot "vertex_measures.csv" using 9:(175*rand(0)-175) linestyle 4 notitle ,\
+     "vertex_measures.csv" using 9:1 smooth kdensity linestyle 4 title "Sum Neighbor Degree"
+
+set output "avg_nbr_deg_vertices.eps"
+set title "Kernel Density Estimation\nfor All Vertices"
+set xrange[0:0.008]
+set yrange [-175:700]
+plot "vertex_measures.csv" using 10:(175*rand(0)-175) linestyle 4 notitle ,\
+     "vertex_measures.csv" using 10:1 smooth kdensity linestyle 4 title "Average Neighbor Degree"
+
