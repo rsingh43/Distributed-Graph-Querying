@@ -32,10 +32,10 @@ set key height 2
 set terminal postscript eps color
 set output "relative_triangle_count.eps"
 
-plot "betweenness_centrality.min.csv"   using (xfix($1)):(yfix(($3/3)/(347700/3)*100)) with linespoints linestyle 4 title "Betweenness" ,\
-     "closeness_centrality.min.csv"     using (xfix($1)):(yfix(($3/3)/(347700/3)*100)) with linespoints linestyle 5 title "Closeness" ,\
-     "eigenvector_centrality.min.csv"   using (xfix($1)):(yfix(($3/3)/(347700/3)*100)) with linespoints linestyle 6 title "Eigenvector" ,\
-     "pagerank.min.csv"                 using (xfix($1)):(yfix(($3/3)/(347700/3)*100)) with linespoints linestyle 7 title "PageRank" ,\
+plot "betweenness_centrality.min.csv"   using (xfix($1)):(yfix(($3/3)/(347700/3)*100)) with linespoints linestyle 1 title "Betweenness" ,\
+     "closeness_centrality.min.csv"     using (xfix($1)):(yfix(($3/3)/(347700/3)*100)) with linespoints linestyle 2 title "Closeness" ,\
+     "eigenvector_centrality.min.csv"   using (xfix($1)):(yfix(($3/3)/(347700/3)*100)) with linespoints linestyle 3 title "Eigenvector" ,\
+     "pagerank.min.csv"                 using (xfix($1)):(yfix(($3/3)/(347700/3)*100)) with linespoints linestyle 4 title "PageRank" ,\
      "norm_avg_nbr_degree.min.csv"      using (xfix($1)):(yfix(($3/3)/(347700/3)*100)) with linespoints linestyle 5 title "Avg. Nbr. Degree" ,\
      "norm_avg_nbr_in_degree.min.csv"   using (xfix($1)):(yfix(($3/3)/(347700/3)*100)) with linespoints linestyle 6 title "Avg. Nbr. In Degree" ,\
      "norm_avg_nbr_out_degree.min.csv"  using (xfix($1)):(yfix(($3/3)/(347700/3)*100)) with linespoints linestyle 7 title "Avg. Nbr. Out Degree" ,\
