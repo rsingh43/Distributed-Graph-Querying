@@ -4,7 +4,6 @@ set datafile separator ","
 set terminal postscript eps color
 
 set style line 4 linecolor rgb "red"  linewidth 1.000 dashtype solid pointtype 1 pointsize default pointinterval 0
-set style line 5 lt rgb "blue" lw 4
 
 set xlabel "Value"
 set ylabel "Density"
@@ -24,8 +23,8 @@ plot "vertex_measures.csv" using 2:(0.003*rand(0)-0.003) linestyle 4 notitle ,\
 set output "in_degree_vertices.eps"
 set title "Kernel Density Estimation\nfor All Vertices"
 set xrange[0:600]
-set yrange [-0.003:*]
-plot "vertex_measures.csv" using 3:(0.003*rand(0)-0.003) linestyle 4 notitle ,\
+set yrange [-0.005625:0.025]
+plot "vertex_measures.csv" using 3:(0.005625*rand(0)-0.005625) linestyle 4 notitle ,\
      "vertex_measures.csv" using 3:1 smooth kdensity linestyle 4 title "In Degree"
 
 set output "out_degree_vertices.eps"
@@ -44,7 +43,7 @@ plot "vertex_measures.csv" using 5:(75*rand(0)-75) linestyle 4 notitle ,\
 
 set output "closeness_centrality_vertices.eps"
 set title "Kernel Density Estimation\nfor All Vertices"
-set yrange [-1:8]
+set yrange [-2:8]
 set xrange[0:0.6]
 plot "vertex_measures.csv" using 6:(2*rand(0)-2) linestyle 4 notitle ,\
      "vertex_measures.csv" using 6:1 smooth kdensity linestyle 4 title "Closeness Centrality"
@@ -63,17 +62,45 @@ set yrange [-175:700]
 plot "vertex_measures.csv" using 8:(175*rand(0)-175) linestyle 4 notitle ,\
      "vertex_measures.csv" using 8:1 smooth kdensity linestyle 4 title "PageRank"
 
-set output "sum_nbr_deg_vertices.eps"
-set title "Kernel Density Estimation\nfor All Vertices"
-set xrange[0:30000]
-set yrange [-0.00005:0.0002]
-plot "vertex_measures.csv" using 9:(0.00005*rand(0)-0.00005) linestyle 4 notitle ,\
-     "vertex_measures.csv" using 9:1 smooth kdensity linestyle 4 title "Sum Neighbor Degree"
-
 set output "avg_nbr_deg_vertices.eps"
 set title "Kernel Density Estimation\nfor All Vertices"
 set xrange[0:600]
 set yrange [-0.003:0.012]
-plot "vertex_measures.csv" using 10:(0.003*rand(0)-0.003) linestyle 4 notitle ,\
-     "vertex_measures.csv" using 10:1 smooth kdensity linestyle 4 title "Average Neighbor Degree"
+plot "vertex_measures.csv" using 9:(0.003*rand(0)-0.003) linestyle 4 notitle ,\
+     "vertex_measures.csv" using 9:1 smooth kdensity linestyle 4 title "Average Neighbor Degree"
+
+set output "avg_nbr_in_deg_vertices.eps"
+set title "Kernel Density Estimation\nfor All Vertices"
+set xrange[0:250]
+set yrange [-0.00625:0.025]
+plot "vertex_measures.csv" using 10:(0.00625*rand(0)-0.00625) linestyle 4 notitle ,\
+     "vertex_measures.csv" using 10:1 smooth kdensity linestyle 4 title "Average Neighbor In-Degree"
+
+set output "avg_nbr_out_deg_vertices.eps"
+set title "Kernel Density Estimation\nfor All Vertices"
+set xrange[0:350]
+set yrange [-0.00625:0.025]
+plot "vertex_measures.csv" using 11:(0.00625*rand(0)-0.00625) linestyle 4 notitle ,\
+     "vertex_measures.csv" using 11:1 smooth kdensity linestyle 4 title "Average Neighbor Out-Degree"
+
+set output "sum_nbr_deg_vertices.eps"
+set title "Kernel Density Estimation\nfor All Vertices"
+set xrange[0:30000]
+set yrange [-0.00005:0.0002]
+plot "vertex_measures.csv" using 12:(0.00005*rand(0)-0.00005) linestyle 4 notitle ,\
+     "vertex_measures.csv" using 12:1 smooth kdensity linestyle 4 title "Sum Neighbor Degree"
+
+set output "sum_nbr_in_deg_vertices.eps"
+set title "Kernel Density Estimation\nfor All Vertices"
+set xrange[0:15000]
+set yrange [-0.0001:0.0004]
+plot "vertex_measures.csv" using 13:(0.0001*rand(0)-0.0001) linestyle 4 notitle ,\
+     "vertex_measures.csv" using 13:1 smooth kdensity linestyle 4 title "Sum Neighbor In-Degree"
+
+set output "sum_nbr_out_deg_vertices.eps"
+set title "Kernel Density Estimation\nfor All Vertices"
+set xrange[0:15000]
+set yrange [-0.0001:0.0004]
+plot "vertex_measures.csv" using 14:(0.0001*rand(0)-0.0001) linestyle 4 notitle ,\
+     "vertex_measures.csv" using 14:1 smooth kdensity linestyle 4 title "Sum Neighbor Out-Degree"
 
