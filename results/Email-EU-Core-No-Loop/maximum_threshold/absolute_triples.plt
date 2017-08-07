@@ -21,7 +21,6 @@ set key horizontal
 set key outside bottom center
 set key height 2
 
-
 #set style line 1 lt rgb "red"    lw 4 pt 1
 #set style line 2 lt rgb "blue"   lw 4 pt 2
 #set style line 3 lt rgb "green"  lw 4 pt 3
