@@ -32,14 +32,17 @@ set key height 2
 set terminal postscript eps color
 set output "absolute_triangle_count.eps"
 
-plot "betweenness_centrality.max.csv"   using (xfix($1)):(yfix($3/3)) with linespoints linestyle 1 title "Betweenness" ,\
-     "closeness_centrality.max.csv"     using (xfix($1)):(yfix($3/3)) with linespoints linestyle 2 title "Closeness" ,\
-     "eigenvector_centrality.max.csv"   using (xfix($1)):(yfix($3/3)) with linespoints linestyle 3 title "Eigenvector" ,\
-     "pagerank.max.csv"                 using (xfix($1)):(yfix($3/3)) with linespoints linestyle 4 title "PageRank" ,\
-     "norm_avg_nbr_degree.max.csv"      using (xfix($1)):(yfix($3/3)) with linespoints linestyle 5 title "Avg. Nbr. Degree" ,\
-     "norm_avg_nbr_in_degree.max.csv"   using (xfix($1)):(yfix($3/3)) with linespoints linestyle 6 title "Avg. Nbr. In-Degree" ,\
-     "norm_avg_nbr_out_degree.max.csv"  using (xfix($1)):(yfix($3/3)) with linespoints linestyle 7 title "Avg. Nbr. Out-Degree" ,\
-     "norm_sum_nbr_degree.max.csv"      using (xfix($1)):(yfix($3/3)) with linespoints linestyle 8 title "Sum Nbr. Degree" ,\
-     "norm_sum_nbr_in_degree.max.csv"   using (xfix($1)):(yfix($3/3)) with linespoints linestyle 9 title "Sum Nbr. In-Degree" ,\
-     "norm_sum_nbr_out_degree.max.csv"  using (xfix($1)):(yfix($3/3)) with linespoints linestyle 10 title "Sum Nbr. Out-Degree"
+plot "betweenness_centrality.max.csv"   using (xfix($1)):(yfix($3/3)) with linespoints linestyle 1  title "Betweenness" ,\
+     "closeness_centrality.max.csv"     using (xfix($1)):(yfix($3/3)) with linespoints linestyle 2  title "Closeness" ,\
+     "eigenvector_centrality.max.csv"   using (xfix($1)):(yfix($3/3)) with linespoints linestyle 3  title "Eigenvector" ,\
+     "pagerank.max.csv"                 using (xfix($1)):(yfix($3/3)) with linespoints linestyle 4  title "PageRank" ,\
+     "norm_degree.max.csv"              using (xfix($1)):(yfix($3/3)) with linespoints linestyle 5  title "Degree" ,\
+     "norm_in_degree.max.csv"           using (xfix($1)):(yfix($3/3)) with linespoints linestyle 6  title "In-Degree" ,\
+     "norm_out_degree.max.csv"          using (xfix($1)):(yfix($3/3)) with linespoints linestyle 7  title "Out-Degree" ,\
+     "norm_avg_nbr_degree.max.csv"      using (xfix($1)):(yfix($3/3)) with linespoints linestyle 8  title "Avg. Nbr. Degree" ,\
+     "norm_avg_nbr_in_degree.max.csv"   using (xfix($1)):(yfix($3/3)) with linespoints linestyle 9  title "Avg. Nbr. In-Degree" ,\
+     "norm_avg_nbr_out_degree.max.csv"  using (xfix($1)):(yfix($3/3)) with linespoints linestyle 10 title "Avg. Nbr. Out-Degree" ,\
+     "norm_sum_nbr_degree.max.csv"      using (xfix($1)):(yfix($3/3)) with linespoints linestyle 11 title "Sum Nbr. Degree" ,\
+     "norm_sum_nbr_in_degree.max.csv"   using (xfix($1)):(yfix($3/3)) with linespoints linestyle 12 title "Sum Nbr. In-Degree" ,\
+     "norm_sum_nbr_out_degree.max.csv"  using (xfix($1)):(yfix($3/3)) with linespoints linestyle 13 title "Sum Nbr. Out-Degree"
 
